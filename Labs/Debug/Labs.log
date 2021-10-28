@@ -1,0 +1,6 @@
+﻿  lab1.cpp
+D:\studies\year2\period2\Cpp_oop\Exercises\Labs\Labs\lab1.cpp(14,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\studies\year2\period2\Cpp_oop\Exercises\Labs\Labs\lab1.cpp(31,29): warning C4018: '<': signed/unsigned mismatch
+D:\studies\year2\period2\Cpp_oop\Exercises\Labs\Labs\lab1.cpp(37,29): warning C4018: '<': signed/unsigned mismatch
+D:\studies\year2\period2\Cpp_oop\Exercises\Labs\Labs\lab1.cpp(53,29): warning C4018: '<': signed/unsigned mismatch
+  Labs.vcxproj -> D:\studies\year2\period2\Cpp_oop\Exercises\Labs\Debug\Lab1.exe
