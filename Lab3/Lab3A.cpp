@@ -31,6 +31,9 @@ int ioread_doub_nneg(vector<double> &list_doub_nneg) {
 	do {
 		n = -1;
 		cin >> n;
+		if (cin.fail()) { //Here we are!
+
+		}
 		cin.clear();
 		cin.ignore(255, '\n');
 		if (n >= 0) list_doub_nneg.push_back(n);
