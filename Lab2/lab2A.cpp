@@ -19,6 +19,8 @@ int main() {
  	    page.append(line);
  	    line.erase();
 	}
+
+	cout << page << endl;
 	// Now page is a string that contains the whole xml page
 	
 	// Here you need to write something that finds and 
@@ -32,6 +34,7 @@ int main() {
 	cout << "Location: " << location << endl;
 	cout << "Temperature: " << temperature << endl; 
 	
+	return 0;
 }
 
 
