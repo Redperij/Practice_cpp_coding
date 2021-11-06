@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -9,17 +10,12 @@ using namespace std;
 */
 int ioread_doub_nneg(vector<double> &list_doub_nneg);
 
-/*
-* Sorts numbers in the vector<double>. (From lowest to highest)
-*/
-int sort_numbers(vector<double> &list_doub);
-
 int main() {
 	vector<double> list_numbers;
 
 	ioread_doub_nneg(list_numbers);
-	if (!sort_numbers(list_numbers)) {
-		cout << endl << "Sorted numbers list:" << endl;
+	if (list_numbers.size() > 0) {
+		sort(list_numbers.begin(), list_numbers.end());
 		for (auto num : list_numbers) {
 			cout << setprecision(3) << fixed << num << endl;
 		}
@@ -53,25 +49,6 @@ int ioread_doub_nneg(vector<double> &list_doub_nneg) {
 	} while (n >= 0);
 	//Get rid of the escape number.
 	list_doub_nneg.pop_back();
-
-	return 0;
-}
-
-/*
-* Sorts numbers in the vector<double>. (From lowest to highest)
-*/
-int sort_numbers(vector<double> &list_doub) {
-	size_t size = list_doub.size();
-	
-	if (size < 1) return 1;
-
-	for (size_t i = 0; i < size; i++) {
-		for (size_t q = 1; q < size; q++) {
-			if (list_doub[q - 1] > list_doub[q]) {
-				swap(list_doub[q - 1], list_doub[q]);
-			}
-		}
-	}
 
 	return 0;
 }
