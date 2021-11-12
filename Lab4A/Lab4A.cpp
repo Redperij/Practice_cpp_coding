@@ -1,7 +1,10 @@
 #include <iostream>
+#include <string>
+
+#include "Time.h"
 
 using namespace std;
-/*
+
 int main() {
 	Time time1, time2, duration;
 
@@ -22,4 +25,3 @@ int main() {
 
 	return 0;
 }
-*/
