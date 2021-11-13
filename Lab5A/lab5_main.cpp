@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "Time.h"
 
 using namespace std;
@@ -11,14 +12,12 @@ void print(const vector<Time> &v)
 	}
 }
 
-
-
 int main() {
 	Time time1, time2, duration;
 
 	time1.read("Enter time 1");
 	time2.read("Enter time 2");
-	if (time1<time2) {
+	if (time1 < time2) {
 		duration = time2 - time1;
 		cout << "Starting time was " << time1 << endl;
 	} else {
