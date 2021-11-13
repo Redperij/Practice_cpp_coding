@@ -7,20 +7,20 @@
 Time::Time(int in_seconds) {
 	this->in_seconds = in_seconds;
 	//Time must be valid. Forcefully loop invalid values.
-	while (this->in_seconds < MIN_TIME) this->in_seconds += MAX_TIME;
-	while (this->in_seconds > MAX_TIME) this->in_seconds -= MAX_TIME;
+	while (this->in_seconds < MIN_TIME) this->in_seconds += DAY;
+	while (this->in_seconds > MAX_TIME) this->in_seconds -= DAY;
 }
 Time::Time(int hours, int minutes) {
 	this->in_seconds = HOURS_TO_SECONDS(hours) + MINUTES_TO_SECONDS(minutes);
 	//Time must be valid. Forcefully loop invalid values.
-	while (this->in_seconds < MIN_TIME) this->in_seconds += MAX_TIME;
-	while (this->in_seconds > MAX_TIME) this->in_seconds -= MAX_TIME;
+	while (this->in_seconds < MIN_TIME) this->in_seconds += DAY;
+	while (this->in_seconds > MAX_TIME) this->in_seconds -= DAY;
 }
 Time::Time(int hours, int minutes, int seconds) {
 	this->in_seconds = HOURS_TO_SECONDS(hours) + MINUTES_TO_SECONDS(minutes) + seconds;
 	//Time must be valid. Forcefully loop invalid values.
-	while (this->in_seconds < MIN_TIME) this->in_seconds += MAX_TIME;
-	while (this->in_seconds > MAX_TIME) this->in_seconds -= MAX_TIME;
+	while (this->in_seconds < MIN_TIME) this->in_seconds += DAY;
+	while (this->in_seconds > MAX_TIME) this->in_seconds -= DAY;
 }
 
 ///////////
@@ -178,7 +178,7 @@ Time Time::operator-(const Time &time) const {
 */
 Time &Time::operator++() {
 	this->in_seconds += MINUTE_IN_SECONDS;
-	if (this->in_seconds >= MAX_TIME) this->in_seconds -= MAX_TIME;
+	if (this->in_seconds > MAX_TIME) this->in_seconds -= DAY;
 	return *this;
 }
 
@@ -188,6 +188,6 @@ Time &Time::operator++() {
 Time Time::operator++(int) {
 	Time old_time = *this;
 	this->in_seconds += MINUTE_IN_SECONDS;
-	if (this->in_seconds >= MAX_TIME) this->in_seconds -= MAX_TIME;
+	if (this->in_seconds > MAX_TIME) this->in_seconds -= DAY;
 	return old_time;
 }

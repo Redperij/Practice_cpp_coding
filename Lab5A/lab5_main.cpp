@@ -59,6 +59,20 @@ int main() {
 	cout << "Sorted times: " << endl;
 	print(tv);
 
+	//Some additional checks.
+	tv.push_back(Time(MINUTES_TO_SECONDS(13) * -1));
+	tv.push_back(Time(DAY * -3 + MINUTES_TO_SECONDS(3)));
+	tv.push_back(Time(DAY * 9 + MINUTES_TO_SECONDS(93)));
+	cout << "Vector with last 3 looped times:" << endl;
+	print(tv);
+
+	tv[0] = tv[0] - tv[1];
+	cout << "Vector with first looped time:" << endl;
+	print(tv);
+
+	sort(tv.begin(), tv.end());
+	cout << "Sorted times: " << endl;
+	print(tv);
 	return 0;
 }
 

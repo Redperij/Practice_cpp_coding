@@ -16,7 +16,8 @@
 #define MINUTES_TO_SECONDS(x) (x * MINUTE_IN_SECONDS)
 
 #define MIN_TIME 0
-#define MAX_TIME (HOURS_TO_SECONDS((MAX_HOURS + 1)) - 1) // 24 hours minus 1 second
+#define MAX_TIME (HOURS_TO_SECONDS((MAX_HOURS + 1)) - 1) //24 hours minus 1 second
+#define DAY (MAX_TIME + 1) //24 hours
 
 class Time
 {
