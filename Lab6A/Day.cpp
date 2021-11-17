@@ -43,7 +43,7 @@ std::string Day::to_str() {
 /// <param name="offset">Number of hours to add</param>
 void Day::dst(int offset) {
 	for (auto &t : this->list) {
-		t += HOURS_TO_SECONDS(offset);
+		t += hour_in_seconds * offset;
 	}
 	std::sort(this->list.begin(), this->list.end());
 }

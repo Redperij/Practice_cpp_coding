@@ -6,20 +6,18 @@
 #include <iomanip>
 #include <vector>
 
-#define MIN_SECONDS 0
-#define MAX_SECONDS 59
-#define MIN_MINUTES 0
-#define MAX_MINUTES 59
-#define MIN_HOURS 0
-#define MAX_HOURS 23
-#define HOUR_IN_SECONDS 3600
-#define MINUTE_IN_SECONDS 60
-#define HOURS_TO_SECONDS(x) (x * HOUR_IN_SECONDS)
-#define MINUTES_TO_SECONDS(x) (x * MINUTE_IN_SECONDS)
+extern const int min_seconds;
+extern const int max_seconds;
+extern const int min_minutes;
+extern const int max_minutes;
+extern const int min_hours;
+extern const int max_hours;
+extern const int hour_in_seconds;
+extern const int minute_in_seconds;
 
-#define MIN_TIME 0
-#define MAX_TIME (HOURS_TO_SECONDS((MAX_HOURS + 1)) - 1) //24 hours minus 1 second
-#define DAY (MAX_TIME + 1) //24 hours
+extern const int min_time;
+extern const int max_time;
+extern const int day;
 
 class Time
 {
