@@ -60,9 +60,9 @@ int main() {
 	print(tv);
 
 	//Some additional checks.
-	tv.push_back(Time(MINUTES_TO_SECONDS(13) * -1));
-	tv.push_back(Time(DAY * -3 + MINUTES_TO_SECONDS(3)));
-	tv.push_back(Time(DAY * 9 + MINUTES_TO_SECONDS(93)));
+	tv.push_back(Time(minute_in_seconds * 13 * -1));
+	tv.push_back(Time(day * -3 + minute_in_seconds * 3));
+	tv.push_back(Time(day * 9 + minute_in_seconds * 93));
 	cout << "Vector with last 3 looped times:" << endl;
 	print(tv);
 
