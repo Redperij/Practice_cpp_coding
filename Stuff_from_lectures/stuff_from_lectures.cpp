@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -34,3 +35,4 @@ int function(int &a) {
 	a = 20;
 	return 0;
 }
+*/
