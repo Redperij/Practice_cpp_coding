@@ -144,7 +144,7 @@ int Time::get_seconds() const{
 * Display time in format '(hh:mm)'.
 */
 std::ostream &operator<<(std::ostream &out, const Time &time) {
-	std::cout << std::setfill('0') << std::setw(2) << time.get_hours() << ":" << std::setfill('0') << std::setw(2) << time.get_minutes() << std::endl;
+	out << std::setfill('0') << std::setw(2) << time.get_hours() << ":" << std::setfill('0') << std::setw(2) << time.get_minutes() << std::endl;
 	return out;
 }
 
