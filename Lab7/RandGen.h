@@ -5,12 +5,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <time.h>
 
 class RandGen
 {
 public:
-	RandGen() : min(0), max(10), numbers() { srand(time(NULL)); }
-	RandGen(const int min, const int max) : min(min), max(max), numbers() { srand(time(NULL)); }
+	RandGen();
+	RandGen(const int min, const int max);
 	int operator()();
 private:
 	std::vector<int> numbers;
