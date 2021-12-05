@@ -14,6 +14,7 @@ public:
     virtual void input(const char *prompt) override;
     virtual void output() const override;
     virtual double area() const override;
+    virtual bool operator<(const std::shared_ptr<Point> p) const override; //Haven't used
 private:
     double radius;
 };

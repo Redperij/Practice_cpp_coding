@@ -3,6 +3,8 @@
 #define POINT_H
 
 #include <iostream>
+#include <iomanip>
+#include <memory>
 
 class Point {
 public:
@@ -14,9 +16,12 @@ public:
     virtual void output() const;
     virtual double area() const;
     void move(double deltax, double deltay);
+    virtual bool operator<(const std::shared_ptr<Point> p) const; //Haven't used
 private:
     double x;
     double y;
 };
+
+bool sort_by_area(const std::shared_ptr<Point> p1, const std::shared_ptr<Point> p2);
 
 #endif
