@@ -141,9 +141,13 @@
   <ItemGroup>
     <ClCompile Include="Counter.cpp" />
     <ClCompile Include="lab10_main.cpp" />
+    <ClCompile Include="LimitedCounter.cpp" />
+    <ClCompile Include="OverflowCounter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Counter.h" />
+    <ClInclude Include="LimitedCounter.h" />
+    <ClInclude Include="OverflowCounter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

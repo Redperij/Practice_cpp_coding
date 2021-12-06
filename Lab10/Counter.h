@@ -1,4 +1,7 @@
 #pragma once
+#ifndef _COUNTER_H
+#define _COUNTER_H
+
 class Counter {
 public:
 	virtual void inc() = 0;
@@ -6,3 +9,5 @@ public:
 	virtual operator int() = 0;
 	virtual ~Counter() {};
 };
+
+#endif
