@@ -11,6 +11,12 @@ int main(int argc, char** argv) {
 	LimitedCounter lc(0, 5);
 	OverflowCounter oc(5, 9);
 
+	CounterObserver obs1, obs2, obs3;
+	lc.SetObserver(&obs1);
+	oc.SetObserver(&obs2);
+	lc.SetObserver(&obs3);
+	oc.SetObserver(&obs3);
+
 	cout << "Overflow counter" << endl;
 	cout << oc << endl; // should display 5
 	UseCounter(oc, 5);
@@ -30,20 +36,6 @@ int main(int argc, char** argv) {
 	cout << lc << endl; // should display 5
 	UseCounter(lc, -9); 
 	cout << lc << endl; // should display 0
-
-	cout << "Funny overflow counter." << endl;
-	oc = OverflowCounter(1, 0);
-	cout << oc << endl; // should display 1
-	UseCounter(oc, 20);
-	cout << oc << endl; // should display 0
-	UseCounter(oc, -18);
-	cout << oc << endl; // should display 0
-	oc = OverflowCounter(1, 1);
-	cout << oc << endl; // should display 1
-	UseCounter(oc, 19);
-	cout << oc << endl; // should display 0
-	UseCounter(oc, -15);
-	cout << oc << endl; // should display 1
 
 	return 0;
 }

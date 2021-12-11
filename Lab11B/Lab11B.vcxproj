@@ -140,12 +140,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Counter.cpp" />
+    <ClCompile Include="CounterObserver.cpp" />
     <ClCompile Include="lab11B_main.cpp" />
     <ClCompile Include="LimitedCounter.cpp" />
     <ClCompile Include="OverflowCounter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Counter.h" />
+    <ClInclude Include="CounterObserver.h" />
     <ClInclude Include="LimitedCounter.h" />
     <ClInclude Include="OverflowCounter.h" />
   </ItemGroup>
