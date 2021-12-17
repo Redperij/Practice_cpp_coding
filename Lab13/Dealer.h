@@ -3,6 +3,8 @@
 #define _DEALER_H
 
 #include <iostream>
+#include <vector>
+#include <memory>
 #include "Car.h"
 #include "Website.h"
 
@@ -13,11 +15,11 @@ public:
 	~Dealer();
 	void buy();
 	void sell();
-	void add(Car *car);
-	void add_site(Website *w);
+	void add(std::shared_ptr<Car> car);
+	void add_site(std::shared_ptr<Website> w);
 private:
 	std::string name;
-	std::vector<Car *> cars;
-	std::vector<Website *> sites;
+	std::vector<std::shared_ptr<Car>> cars;
+	std::vector<std::shared_ptr<Website>> sites;
 };
 #endif

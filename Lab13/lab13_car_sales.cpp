@@ -16,15 +16,15 @@
 
 void car_sales() {
 	std::cout << "Car sales started" << std::endl;
-	Website *wa = new Website("www.autos.com");
-	Website *wb = new Website("www.bilar.com");
-	Website *wc = new Website("www.cars.com");
-	Dealer *a = new Dealer("Alan Aldis");
-	Dealer *b = new Dealer("Bill Munny");
+	std::shared_ptr<Website> wa = std::make_shared<Website>("www.autos.com");
+	std::shared_ptr<Website> wb = std::make_shared<Website>("www.bilar.com");
+	std::shared_ptr<Website> wc = std::make_shared<Website>("www.cars.com");
+	std::shared_ptr<Dealer> a = std::make_shared<Dealer>("Alan Aldis");
+	std::shared_ptr<Dealer> b = std::make_shared<Dealer>("Bill Munny");
 	{
-		Dealer *c = new Dealer("Casey Ball");
-		Car *ca = new Car;
-		Car *cb = new Car;
+		std::shared_ptr<Dealer> c = std::make_shared<Dealer>("Casey Ball");
+		std::shared_ptr<Car> ca = std::make_shared<Car>();
+		std::shared_ptr<Car> cb = std::make_shared<Car>();
 
 		a->add_site(wa);
 		a->add_site(wb);
@@ -87,5 +87,3 @@ int main(int argc, char **argv) {
 
 	return 0;
 }
-
-

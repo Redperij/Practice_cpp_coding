@@ -8,7 +8,7 @@ Dealer::~Dealer() {
 
 void Dealer::buy()
 {
-	Car *car = new Car;
+	std::shared_ptr<Car> car = std::make_shared<Car>();
 	car->Read();
 	add(car);
 }
@@ -20,7 +20,7 @@ void Dealer::sell()
 
 	std::string license;
 	std::cin >> license;
-	auto ci = std::find_if(cars.begin(), cars.end(), [&license](Car *c) {
+	auto ci = std::find_if(cars.begin(), cars.end(), [&license](std::shared_ptr<Car> c) {
 		return license == c->GetLicense();
 		});
 	if (ci != cars.end()) {
@@ -29,11 +29,11 @@ void Dealer::sell()
 	}
 }
 
-void Dealer::add(Car *car) {
+void Dealer::add(std::shared_ptr<Car> car) {
 	cars.push_back(car);
 	for (auto site : sites) site->advertise(car);
 }
-void Dealer::add_site(Website *w) {
+void Dealer::add_site(std::shared_ptr<Website> w) {
 	sites.push_back(w);
 }
 
