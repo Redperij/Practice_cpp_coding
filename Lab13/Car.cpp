@@ -15,7 +15,7 @@ void Car::SetDealer(Dealer *dealer) {
 void Car::Read()
 {
 	//std::cout << "Enter car information" << std::endl;
-	// replace the following with your own code
+	// replace the following with your own code (Edit: It works fine, even generating repeating licenses)
 	model = "Seat";
 	license = (rand() % 2 ? "ZAP-" : "ZIP-") + std::to_string(rand() % 999 + 1);
 	mileage = 10000 + rand() % 10000;

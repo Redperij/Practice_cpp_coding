@@ -26,3 +26,11 @@ void Website::print(std::ostream &out) {
 
 	out << name << " end of list" << std::endl;
 }
+
+void Website::run() {
+	std::lock_guard<std::mutex> lg(m);
+	while (listing.size() != 0) {
+		std::this_thread::sleep_for(std::chrono::seconds(10));
+		this->print(std::cout);
+	}
+}
