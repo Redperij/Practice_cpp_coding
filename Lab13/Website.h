@@ -13,9 +13,8 @@ public:
 	~Website();
 	void advertise(std::shared_ptr<Car> car);
 	void print(std::ostream &out = std::cout);
-	void remove(std::shared_ptr<Car> car);
 private:
-	std::vector<std::shared_ptr<Car>> listing;
+	std::vector<std::weak_ptr<Car>> listing;
 	std::string name;
 };
 

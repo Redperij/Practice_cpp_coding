@@ -24,7 +24,6 @@ void Dealer::sell()
 		return license == c->GetLicense();
 		});
 	if (ci != cars.end()) {
-		for (auto site : sites) site->remove(*ci); // modify code wso that this is not needed
 		cars.erase(ci);
 	}
 }

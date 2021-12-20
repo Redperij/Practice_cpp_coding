@@ -11,9 +11,18 @@ void Website::advertise(std::shared_ptr<Car> car) {
 }
 
 void Website::print(std::ostream &out) {
-	out << name << std::endl; for (auto car : listing) out << *car; out << name << " end of list" << std::endl;
-}
 
-void Website::remove(std::shared_ptr<Car> car) {
-	listing.erase(std::remove(listing.begin(), listing.end(), car), listing.end());
+	out << name << std::endl;
+	for (int i = 0; i < listing.size(); i++) {
+		std::shared_ptr<Car> spcar = listing[i].lock();
+		if (spcar != nullptr) {
+			out << *spcar;
+		}
+		else { //Erase entry in case car has been sold.
+			listing.erase(listing.begin() + i);
+			i--;
+		}
+	}
+
+	out << name << " end of list" << std::endl;
 }
