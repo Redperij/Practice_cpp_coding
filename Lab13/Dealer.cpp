@@ -6,6 +6,10 @@ Dealer::~Dealer() {
 	std::cout << name << " deleted" << std::endl;
 }
 
+std::string Dealer::get_name() {
+	return this->name;
+}
+
 void Dealer::buy()
 {
 	std::shared_ptr<Car> car = std::make_shared<Car>();
@@ -29,6 +33,7 @@ void Dealer::sell()
 }
 
 void Dealer::add(std::shared_ptr<Car> car) {
+	car->SetDealer(this);
 	cars.push_back(car);
 	for (auto site : sites) site->advertise(car);
 }

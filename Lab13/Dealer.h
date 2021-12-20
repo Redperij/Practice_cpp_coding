@@ -12,6 +12,7 @@ class Dealer {
 	friend std::ostream &operator<<(std::ostream &out, const Dealer &dealer);
 public:
 	Dealer(const char *name_ = "John Doe");
+	std::string get_name();
 	~Dealer();
 	void buy();
 	void sell();
