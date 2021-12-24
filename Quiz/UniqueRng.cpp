@@ -2,6 +2,7 @@
 
 UniqueRng::UniqueRng(unsigned int min, unsigned int max) : lower(min), upper(max) { srand(time(NULL)); }
 
+//Gives unique random numbers in specified for the object range.
 int UniqueRng::operator()() {
 	if (numbers.size() <= this->upper - this->lower) { //The same as: "numbers.size() < this->upper - this->lower + 1"
 		int number;

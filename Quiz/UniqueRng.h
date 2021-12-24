@@ -2,12 +2,8 @@
 #ifndef _UniqueRng_h
 #define _UniqueRng_h
 
-#include <vector>
+#include "main.h"
 #include <ctime>
-#include <algorithm>
-#include <iterator>
-#include <exception>
-#include <stdexcept>
 
 class UniqueRng {
 public:

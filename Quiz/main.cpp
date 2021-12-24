@@ -1,4 +1,4 @@
-#include <iostream>
+#include "main.h"
 
 using namespace std;
 
@@ -10,8 +10,6 @@ int main() {
 	//4. add question.
 	//5. take quiz.
 	//6. print all questions.
-
-	// Quiz ?
 
 	return 0;
 }
