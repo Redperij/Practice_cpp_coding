@@ -1,0 +1,31 @@
+{
+    "questions": [
+        {
+            "alt_ans": [
+                "Hey",
+                "How are you?",
+                "Go away"
+            ],
+            "cor_ans": "Hello",
+            "q_text": "Hello?"
+        },
+        {
+            "alt_ans": [
+                "Hey2",
+                "How are you?2",
+                "Go away2"
+            ],
+            "cor_ans": "Hello2",
+            "q_text": "Hello2?"
+        },
+        {
+            "alt_ans": [
+                "1",
+                "2",
+                "3"
+            ],
+            "cor_ans": "Correct",
+            "q_text": "Question"
+        }
+    ]
+}

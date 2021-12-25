@@ -1,5 +1,6 @@
 #include "main.h"
 #include "Question.h"
+#include "Database.h"
 
 using namespace std;
 
@@ -12,27 +13,21 @@ int main() {
 	//5. take quiz.
 	//6. print all questions.
 
-	Question q1;
-	int cor_ans;
-	cin >> q1;
-	cout << q1;
-	cout << endl << endl << endl;
-	cor_ans = q1.show_question();
-	cout << "Correct answer: " << cor_ans << endl;
-	system("pause");
-	cor_ans = q1.show_question();
-	cout << "Correct answer: " << cor_ans << endl;
-	system("pause");
-	cor_ans = q1.show_question();
-	cout << "Correct answer: " << cor_ans << endl;
+	vector<Question> questions;
+	questions.push_back(Question("Hello?", "Hello", {"Hey", "How are you?", "Go away"}));
+	questions.push_back(Question("Hello2?", "Hello2", {"Hey2", "How are you?2", "Go away2"}));
+	questions.push_back(Question("Question", "Correct", {"1", "2", "3"}));
 
-	ofstream fout("some.json");
-	fout << q1 << endl;
+	Database db(questions);
+
+	ofstream fout("db.json");
+	fout << db;
 	fout.close();
+	ifstream fin("db.json");
+	Database db2;
+	fin >> db2;
+	fin.close();
 
-	ifstream fin("some.json");
-	Question q2;
-	fin >> q2;
-	q2.show_question();
+	cout << db2;
 	return 0;
 }

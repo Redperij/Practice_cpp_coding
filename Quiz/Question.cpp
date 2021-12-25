@@ -102,7 +102,6 @@ std::ofstream &operator<<(std::ofstream &fout, const Question &question) {
 }
 //Get question info from file.
 std::ifstream &operator>>(std::ifstream &fin, Question &question) {
-    // json it is then.
     json j;
     fin >> j;
     from_json(j, question);

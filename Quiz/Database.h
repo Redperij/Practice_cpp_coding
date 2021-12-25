@@ -9,7 +9,10 @@ class Database
 {
 	friend std::ostream &operator<<(std::ostream &out, const Database &db);
 	friend std::ofstream &operator<<(std::ofstream &fout, const Database &db);
-	friend std::ifstream &operator>>(std::ifstream &fin, const Database &db);
+	friend std::ifstream &operator>>(std::ifstream &fin, Database &db);
+	//json
+	friend void to_json(json &j, const Database &db);
+	friend void from_json(const json &j, Database &db);
 public:
 	Database(std::vector<Question> q = {});
 	void add_question();
@@ -20,7 +23,6 @@ public:
 	void remove_question(std::string q_text);
 	void read_questions(std::string filename);
 	void save_questions(std::string filename);
-	//void reinit(std::vector<Question> q = {});
 private:
 	std::vector<Question> questions;
 };
