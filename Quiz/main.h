@@ -14,6 +14,6 @@
 #include <stdexcept>
 
 #define DEBUG 1
-
+#define RAPID_INPUT 1
 
 #endif

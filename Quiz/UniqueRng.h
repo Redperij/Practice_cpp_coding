@@ -8,7 +8,7 @@
 class UniqueRng {
 public:
     UniqueRng(unsigned int min = 0, unsigned int max = 10);
-    int operator()();
+    unsigned int operator()();
 private:
     unsigned int lower;
     unsigned int upper;

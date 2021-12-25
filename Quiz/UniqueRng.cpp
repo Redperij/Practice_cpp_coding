@@ -3,9 +3,9 @@
 UniqueRng::UniqueRng(unsigned int min, unsigned int max) : lower(min), upper(max) { srand(time(NULL)); }
 
 //Gives unique random numbers in specified for the object range.
-int UniqueRng::operator()() {
+unsigned int UniqueRng::operator()() {
 	if (numbers.size() <= this->upper - this->lower) { //The same as: "numbers.size() < this->upper - this->lower + 1"
-		int number;
+		unsigned int number;
 		do {
 			number = rand() % (this->upper - this->lower + 1) + this->lower;
 		} while (find(numbers.begin(), numbers.end(), number) != numbers.end());
