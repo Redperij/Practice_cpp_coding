@@ -13,6 +13,10 @@
 #include <exception>
 #include <stdexcept>
 
+#include "json.hpp"
+
+using json = nlohmann::json;
+
 #define DEBUG 1
 #define RAPID_INPUT 1
 

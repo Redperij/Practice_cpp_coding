@@ -96,15 +96,27 @@ std::istream &operator>>(std::istream &in, Question &question) {
 }
 //Print question info to file.
 std::ofstream &operator<<(std::ofstream &fout, const Question &question) {
-    // json it is then.
-    
+    json j(question);
+    fout << std::setw(4) << j << std::endl;
     return fout;
 }
 //Get question info from file.
 std::ifstream &operator>>(std::ifstream &fin, Question &question) {
     // json it is then.
-
+    json j;
+    fin >> j;
+    from_json(j, question);
     return fin;
+}
+
+void to_json(json &j, const Question &q) {
+    j = json{{"q_text", q.q_text}, {"cor_ans", q.cor_ans}, {"alt_ans", q.alt_ans}};
+}
+
+void from_json(const json &j, Question &q) {
+    j.at("q_text").get_to(q.q_text);
+    j.at("cor_ans").get_to(q.cor_ans);
+    j.at("alt_ans").get_to(q.alt_ans);
 }
 
 bool validate(const std::string &str) {

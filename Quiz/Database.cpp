@@ -31,7 +31,7 @@ void Database::read_questions(std::string filename) {
 }
 // Save questions to the specified file.
 void Database::save_questions(std::string filename) {
-
+	
 }
 // Shows all questions from the database.
 std::ostream &operator<<(std::ostream &out, const Database &db) {

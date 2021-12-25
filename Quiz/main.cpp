@@ -25,5 +25,14 @@ int main() {
 	system("pause");
 	cor_ans = q1.show_question();
 	cout << "Correct answer: " << cor_ans << endl;
+
+	ofstream fout("some.json");
+	fout << q1 << endl;
+	fout.close();
+
+	ifstream fin("some.json");
+	Question q2;
+	fin >> q2;
+	q2.show_question();
 	return 0;
 }
