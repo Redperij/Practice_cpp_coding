@@ -1,5 +1,9 @@
 #include "Question.h"
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CONSTRUCTORS //
+//////////////////
+
 Question::Question(std::string q_text, std::string cor_ans, std::vector<std::string> alt_ans) : q_text(q_text), cor_ans(cor_ans), alt_ans(alt_ans) {
 #if DEBUG
     if (this->alt_ans.size() < 3) {
@@ -11,6 +15,10 @@ Question::Question(std::string q_text, std::string cor_ans, std::vector<std::str
         this->alt_ans.push_back("I don't know.");
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FUNCTIONS //
+///////////////
 
 /// <summary>
 /// Show question with 3 randomly chosen alternative answers (one of them is correct).
@@ -46,6 +54,11 @@ unsigned int Question::show_question() {
     }
     return pos_corr_ans + 1;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// OPERATORS //
+///////////////
+
 //Prints question text.
 std::ostream &operator<<(std::ostream &out, const Question &question) {
     std::cout << question.q_text;
@@ -107,6 +120,25 @@ std::ifstream &operator>>(std::ifstream &fin, Question &question) {
     from_json(j, question);
     return fin;
 }
+//Compares questions based on question strings.
+bool Question::operator==(const Question &q) const {
+    if (this->q_text == q.q_text) return true;
+    return false;
+}
+//Compares question string to string.
+bool Question::operator==(const std::string &str) const {
+    if (this->q_text == str) return true;
+    return false;
+}
+//Returns question string based comparison.
+bool Question::operator<(const Question &q) const {
+    if (this->q_text < q.q_text) return true;
+    return false;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// JSON PARSING //
+//////////////////
 
 void to_json(json &j, const Question &q) {
     j = json{{"q_text", q.q_text}, {"cor_ans", q.cor_ans}, {"alt_ans", q.alt_ans}};
@@ -118,6 +150,10 @@ void from_json(const json &j, Question &q) {
     j.at("alt_ans").get_to(q.alt_ans);
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// HELPERS //
+/////////////
+//Asks user whether input is correct.
 bool validate(const std::string &str) {
     std::string input;
     std::cout << str << std::endl << "Is this correct?" << std::endl << "Y/N: ";
