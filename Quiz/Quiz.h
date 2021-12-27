@@ -4,14 +4,18 @@
 
 #include "main.h"
 #include "Question.h" 
+#include "Database.h"
+#include "UniqueRng.h"
 
 class Quiz
 {
 public:
 	Quiz(std::vector<Question> q = {});
-	void hold_quiz();
+	Quiz(const Database &db);
+	void hold_quiz() const;
 private:
-	std::vector<Question> all_questions;
+	std::vector<Question> questions;
+	unsigned int get_user_ans() const;
 };
 
 #endif

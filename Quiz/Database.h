@@ -22,7 +22,8 @@ public:
 	void remove_question(Question &q);
 	void remove_question(std::string q_text);
 	void read_questions(std::string filename);
-	void save_questions(std::string filename);
+	void save_questions(std::string filename) const;
+	std::vector<Question> get_questions() const;
 private:
 	std::vector<Question> questions;
 };

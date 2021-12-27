@@ -11,7 +11,7 @@ Database::Database(std::vector<Question> q) : questions(q) {}
 ///////////////
 
 // Asks user for the new question to add to the database.
-void Database::add_question() { //ch
+void Database::add_question() {
 	Question q;
 	std::cin >> q;
 	this->add_question(q);
@@ -21,11 +21,11 @@ void Database::add_question(Question &q) {
 	this->questions.push_back(q);
 }
 // Removes last question from the database.
-void Database::remove_question() { //ch
+void Database::remove_question() {
 	this->questions.pop_back();
 }
 // Removes question on a specified postition from the database.
-void Database::remove_question(int pos) { //ch
+void Database::remove_question(int pos) {
 	this->questions.erase(this->questions.begin() + pos);
 }
 // Removes specified question from the database.
@@ -51,10 +51,14 @@ void Database::read_questions(std::string filename) {
 	fin.close();
 }
 // Save questions to the specified file.
-void Database::save_questions(std::string filename) {
+void Database::save_questions(std::string filename) const{
 	std::ofstream fout(filename);
 	fout << *this;
 	fout.close();
+}
+// Returns vector of questions stored in database.
+std::vector<Question> Database::get_questions() const{
+	return this->questions;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

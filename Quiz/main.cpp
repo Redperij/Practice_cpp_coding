@@ -1,6 +1,7 @@
 #include "main.h"
 #include "Question.h"
 #include "Database.h"
+#include "Quiz.h"
 
 using namespace std;
 
@@ -25,5 +26,8 @@ int main() {
 	//db.remove_question(0);
 	//cout << "Removed question" << endl << db << endl;
 	//db.save_questions("Save1.json");
+	Quiz quiz(db);
+	quiz.hold_quiz();
+	
 	return 0;
 }

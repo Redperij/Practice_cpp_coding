@@ -24,7 +24,7 @@ Question::Question(std::string q_text, std::string cor_ans, std::vector<std::str
 /// Show question with 3 randomly chosen alternative answers (one of them is correct).
 /// </summary>
 /// <returns>Correct answer position.</returns>
-unsigned int Question::show_question() {
+unsigned int Question::show_question() const{
     std::vector<std::string> chosen_answers;
     unsigned int pos_corr_ans;
     {

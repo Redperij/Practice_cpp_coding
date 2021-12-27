@@ -15,8 +15,8 @@ class Question
 	friend void to_json(json &j, const Question &q);
 	friend void from_json(const json &j, Question &q);
 public:
-	Question(std::string q_text = "EMPTY QUESTION", std::string cor_ans = "", std::vector<std::string> alt_ans = {});
-	unsigned int show_question();	
+	Question(std::string q_text = "EMPTY QUESTION", std::string cor_ans = "EMPTY CORRECT ANSWER", std::vector<std::string> alt_ans = {});
+	unsigned int show_question() const;	
 	//Operators.
 	bool operator==(const Question &q) const;
 	bool operator==(const std::string &str) const;
