@@ -72,6 +72,7 @@ unsigned int Quiz::get_user_ans() const{
         std::cout << "Error while reading input. Please, write 1, 2 or 3." << std::endl;
 		std::cin.clear();
 		std::cin.ignore(255, '\n');
+        std::cout << "Enter answer number (1, 2 or 3): ";
     }
     return (unsigned int)ans;
 }

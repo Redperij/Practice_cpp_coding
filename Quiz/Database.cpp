@@ -44,6 +44,10 @@ void Database::remove_question(std::string q_text) {
 		});
 	} 
 }
+// Returns number of questions in the database.
+unsigned int Database::size() {
+	return this->questions.size();
+}
 // Reads questions from the specified file.
 void Database::read_questions(std::string filename) {
 	std::ifstream fin(filename);
