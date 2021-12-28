@@ -16,7 +16,7 @@ class Question
 	friend void from_json(const json &j, Question &q);
 public:
 	Question(std::string q_text = "EMPTY QUESTION", std::string cor_ans = "EMPTY CORRECT ANSWER", std::vector<std::string> alt_ans = {});
-	unsigned int show_question() const;	
+	unsigned int show_question();	
 	//Operators.
 	bool operator==(const Question &q) const;
 	bool operator==(const std::string &str) const;
@@ -25,6 +25,7 @@ private:
 	std::string q_text; //Question itself.
 	std::string cor_ans; //Correct answer.
 	std::vector<std::string> alt_ans; //Alternative wrong answers.
+	void generate_alt();
 };
 
 bool validate(const std::string &str);

@@ -45,10 +45,11 @@ void Database::remove_question(std::string q_text) {
 	} 
 }
 // Returns number of questions in the database.
-unsigned int Database::size() {
+unsigned int Database::size() const{
 	return this->questions.size();
 }
 // Reads questions from the specified file.
+//TODO : must add questions to the current database. Not overwrite it! (write operator+=, creating new object on reading and just add it to the current db)
 void Database::read_questions(std::string filename) {
 	std::ifstream fin(filename);
 	fin >> *this;

@@ -4,17 +4,7 @@
 // CONSTRUCTORS //
 //////////////////
 
-Question::Question(std::string q_text, std::string cor_ans, std::vector<std::string> alt_ans) : q_text(q_text), cor_ans(cor_ans), alt_ans(alt_ans) {
-#if DEBUG
-    if (this->alt_ans.size() < 3) {
-        std::cout << "Generating " << 3 - this->alt_ans.size() << " stupid alternatives." << std::endl;
-    }
-#endif
-    while (this->alt_ans.size() < 3) {
-        //Add random stupid alternatives. (We always must have at leas 3 alternatives)
-        this->alt_ans.push_back("I don't know.");
-    }
-}
+Question::Question(std::string q_text, std::string cor_ans, std::vector<std::string> alt_ans) : q_text(q_text), cor_ans(cor_ans), alt_ans(alt_ans) {}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // FUNCTIONS //
@@ -24,9 +14,12 @@ Question::Question(std::string q_text, std::string cor_ans, std::vector<std::str
 /// Show question with 3 randomly chosen alternative answers (one of them is correct).
 /// </summary>
 /// <returns>Correct answer position.</returns>
-unsigned int Question::show_question() const{
+unsigned int Question::show_question(){
     std::vector<std::string> chosen_answers;
     unsigned int pos_corr_ans;
+
+    //Making sure that nothing will go wrong.
+    this->generate_alt(); //Generate random alt answers if not having enough.
     {
         std::vector<unsigned int> pos_alt_ans(2);
         UniqueRng r_gen1(0, this->alt_ans.size() - 1); //alt_size must never be lower than 3.
@@ -153,6 +146,19 @@ void from_json(const json &j, Question &q) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // HELPERS //
 /////////////
+//Generates random alternative answers.
+void Question::generate_alt() { //TODO
+#if DEBUG
+    if (this->alt_ans.size() < 3) {
+        std::cout << "Generating " << 3 - this->alt_ans.size() << " stupid alternatives." << std::endl;
+    }
+#endif
+    while (this->alt_ans.size() < 3) {
+        //Add random stupid alternatives. (We always must have at leas 3 alternatives)
+        this->alt_ans.push_back("I don't know.");
+    }
+}
+
 //Asks user whether input is correct.
 bool validate(const std::string &str) {
     std::string input;

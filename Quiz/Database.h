@@ -21,7 +21,7 @@ public:
 	void remove_question(int pos);
 	void remove_question(Question &q);
 	void remove_question(std::string q_text);
-	unsigned int size();
+	unsigned int size() const;
 	void read_questions(std::string filename);
 	void save_questions(std::string filename) const;
 	std::vector<Question> get_questions() const;
