@@ -147,15 +147,38 @@ void from_json(const json &j, Question &q) {
 // HELPERS //
 /////////////
 //Generates random alternative answers.
-void Question::generate_alt() { //TODO
+void Question::generate_alt() {
 #if DEBUG
     if (this->alt_ans.size() < 3) {
         std::cout << "Generating " << 3 - this->alt_ans.size() << " stupid alternatives." << std::endl;
     }
 #endif
+    //Add random stupid alternatives. (Must have at least 3 alternatives for quiz to work correctly)
+    UniqueRng rnd(0, 5);
     while (this->alt_ans.size() < 3) {
-        //Add random stupid alternatives. (We always must have at leas 3 alternatives)
-        this->alt_ans.push_back("I don't know.");
+        switch (rnd())
+        {
+        case 0:
+            this->alt_ans.push_back("I don't know.");
+            break;
+        case 1:
+            this->alt_ans.push_back("No idea.");
+            break;
+        case 2:
+            this->alt_ans.push_back("...");
+            break;
+        case 3:
+            this->alt_ans.push_back("FREE ME FROM THIS NIGHTMARE.");
+            break;
+        case 4:
+            this->alt_ans.push_back("Somebody messed up!");
+            break;
+        case 5:
+            this->alt_ans.push_back("Give me next question.");
+            break;
+        default:
+            break;
+        }
     }
 }
 

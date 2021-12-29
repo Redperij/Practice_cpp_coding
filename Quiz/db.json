@@ -2,30 +2,48 @@
     "questions": [
         {
             "alt_ans": [
-                "Hey",
-                "How are you?",
-                "Go away"
+                "No.",
+                "I don't know.",
+                "Partially."
             ],
-            "cor_ans": "Hello",
-            "q_text": "Hello?"
+            "cor_ans": "Yes.",
+            "q_text": "Is c++ object oriented language?"
         },
         {
             "alt_ans": [
-                "Hey2",
-                "How are you?2",
-                "Go away2"
+                "1945",
+                "1918",
+                "1898"
             ],
-            "cor_ans": "Hello2",
-            "q_text": "Hello2?"
+            "cor_ans": "1939",
+            "q_text": "World War 2 started in:"
         },
         {
             "alt_ans": [
-                "1",
-                "2",
-                "3"
+                "Bit",
+                "Meters",
+                "Grams"
             ],
-            "cor_ans": "Correct",
-            "q_text": "Question"
+            "cor_ans": "Kilograms",
+            "q_text": "What is SI unit for measuring mass?"
+        },
+        {
+            "alt_ans": [
+                "Original Sin",
+                "Factorio",
+                "World at War"
+            ],
+            "cor_ans": "Morrowind",
+            "q_text": "Which title is a part of \"The elder scrolls\" series?"
+        },
+        {
+            "alt_ans": [
+                "Ayn Rand",
+                "Mel Brooks",
+                "Quentin Tarantino"
+            ],
+            "cor_ans": "Karl Marx and Friedrich Engels",
+            "q_text": "Who wrote \"Capital\"?"
         }
     ]
 }

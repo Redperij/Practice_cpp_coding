@@ -21,7 +21,9 @@ int main() {
 		switch (get_option())
 		{
 		case 1: //Initialize.
+			cout << "Initializing database. ";
 			db = Database();
+			cout << "All questions cleared." << endl;
 			break;
 		case 2: //Save questions.
 			filename = get_filename();
