@@ -4,6 +4,7 @@ Quiz::Quiz(std::vector<Question> q) : questions(q) {}
 
 //By default takes 5 questions from the database.
 //In order to override it you have to use the other constructor receiving vector of questions.
+// - Database class has get_questions() function returning questions vector.
 Quiz::Quiz(const Database &db) {
     if (db.size() != 0) {
         std::vector<Question> db_questions = db.get_questions();

@@ -34,6 +34,7 @@ int main() {
 			filename = get_filename();
 			if(filename != "/stop") {
 				{
+					int prev_size = db.size();
 					ifstream fin(filename);
 					while (fin.fail()) {
 						cout << "Error. Unable to open specified file." << endl;
@@ -41,9 +42,10 @@ int main() {
 						fin.open(filename);
 					}
 					fin.close();
+					
+					db.read_questions(filename);
+					cout << "Successfully read " << db.size() - prev_size << " questions from \"" << filename << "\" file." << endl << "Currently there are " << db.size() << " questions in the database." << endl;
 				}
-				db.read_questions(filename);
-				cout << "Successfully read " << db.size() << " questions from \"" << filename << "\" file." << endl; 
 			}
 			break;
 		case 4: //Add question.

@@ -25,6 +25,8 @@ public:
 	void read_questions(std::string filename);
 	void save_questions(std::string filename) const;
 	std::vector<Question> get_questions() const;
+	//Operators.
+	Database operator+=(Database &db);
 private:
 	std::vector<Question> questions;
 };

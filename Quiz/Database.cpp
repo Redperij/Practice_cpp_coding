@@ -48,12 +48,13 @@ void Database::remove_question(std::string q_text) {
 unsigned int Database::size() const{
 	return this->questions.size();
 }
-// Reads questions from the specified file.
-//TODO : must add questions to the current database. Not overwrite it! (write operator+=, creating new object on reading and just add it to the current db)
+// Reads questions from the specified file and adds them to the existing database.
 void Database::read_questions(std::string filename) {
+	Database in_db;
 	std::ifstream fin(filename);
-	fin >> *this;
+	fin >> in_db;
 	fin.close();
+	*this += in_db; 
 }
 // Save questions to the specified file.
 void Database::save_questions(std::string filename) const{
@@ -75,7 +76,7 @@ std::ostream &operator<<(std::ostream &out, const Database &db) {
 	unsigned int counter = 1;
 	std::cout << "All questions:" << std::endl;
 	for(auto question : db.questions) {
-		std::cout << counter++ << ") " << question << std::endl;
+		std::cout << std::setw(2) << counter++ << ") " << question << std::endl;
 	}
 	return out;
 }
@@ -91,6 +92,16 @@ std::ifstream &operator>>(std::ifstream &fin, Database &db) {
     fin >> j;
     from_json(j, db);
 	return fin;
+}
+
+Database Database::operator+=(Database &db) {
+	for (Question q : db.get_questions()) {
+		//If the question is found in existing database - it is dropped.
+		if ( std::find_if(this->questions.begin(), this->questions.end(), [&q](Question &question) {return question == q;}) == this->questions.end()) {
+			this->questions.push_back(q);
+		}
+	}
+	return *this;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
