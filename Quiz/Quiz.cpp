@@ -9,7 +9,7 @@ Quiz::Quiz(const Database &db) {
     if (db.size() != 0) {
         std::vector<Question> db_questions = db.get_questions();
         UniqueRng rnd(0, db_questions.size() - 1);
-        std::vector<unsigned int> chosen_q(5);
+        std::vector<unsigned int> chosen_q(quiz_const::N_QUESTIONS);
         //There must be at least 5 questions in the database. If there is not enough, constructor will throw an error.
         try {
             generate(chosen_q.begin(), chosen_q.end(), rnd);

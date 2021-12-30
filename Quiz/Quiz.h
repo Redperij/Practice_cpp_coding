@@ -10,6 +10,9 @@
 class Quiz
 {
 public:
+	enum quiz_const {
+		N_QUESTIONS = 5
+	};
 	Quiz(std::vector<Question> q = {});
 	Quiz(const Database &db);
 	void hold_quiz() const;

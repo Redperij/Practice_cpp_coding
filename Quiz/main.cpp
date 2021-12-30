@@ -61,7 +61,7 @@ int main() {
 				Quiz(db).hold_quiz();
 			}
 			catch (runtime_error) {
-				cout << "Aborted Quiz. Add more questions to the database. Currecntly have " << db.size() << " questions out of 5 required." << endl;
+				cout << "Aborted Quiz. Add more questions to the database. Currecntly have " << db.size() << " questions out of "<< Quiz::quiz_const::N_QUESTIONS << " required." << endl;
 			}
 			break;
 		case 6: //Print a report.
