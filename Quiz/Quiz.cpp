@@ -51,7 +51,7 @@ void Quiz::hold_quiz() const{
         std::cout << "Your score is " << score << " out of " << this->questions.size() << std::endl;
         
         //EXTRA (I didn't care about it too much)
-        percent = score * 100 / this->questions.size();
+        percent = static_cast<size_t> (score) * 100 / this->questions.size();
         if(percent == 0) std::cout << "Nothing? Really?" << std::endl;
         else if(percent < 25) std::cout << "Maybe it was too hard?" << std::endl;
         else if(percent < 50) std::cout << "You can do better!" << std::endl;

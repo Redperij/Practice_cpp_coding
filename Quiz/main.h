@@ -17,7 +17,7 @@
 
 using json = nlohmann::json;
 
-#define DEBUG 1 //Use to see debug prints.
+#define DEBUG 0 //Use to see debug prints.
 #define RAPID_INPUT 1 //Enables accepting input with simple 'enter' rather than writing 'y'.
 
 #endif

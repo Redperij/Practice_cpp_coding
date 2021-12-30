@@ -47,7 +47,7 @@ int main() {
 						fin.close();
 
 						db.read_questions(filename);
-						cout << "Successfully read " << db.size() - prev_size << " questions from \"" << filename << "\" file." << endl << "Currently there are " << db.size() << " questions in the database." << endl;
+						cout << "Successfully read " << db.size() - prev_size << " new questions from \"" << filename << "\" file." << endl << "Currently there are " << db.size() << " questions in the database." << endl;
 					}
 					
 				}
@@ -76,7 +76,7 @@ int main() {
 			break;
 		}
 	}
-	cout << "Terminated." << endl;
+	cout << "Have a good day!" << endl;
 	return 0;
 }
 

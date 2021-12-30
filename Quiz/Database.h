@@ -17,10 +17,11 @@ public:
 	Database(std::vector<Question> q = {});
 	void add_question();
 	void add_question(Question &q);
-	void remove_question();
-	void remove_question(int pos);
-	void remove_question(Question &q);
-	void remove_question(std::string q_text);
+	void add_question(Question &q, bool bypass_check); //not used
+	void remove_question(); //not used
+	void remove_question(int pos); //not used
+	void remove_question(Question &q); //not used
+	void remove_question(std::string q_text); //not used
 	unsigned int size() const;
 	void read_questions(std::string filename);
 	void save_questions(std::string filename) const;

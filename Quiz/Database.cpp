@@ -16,9 +16,23 @@ void Database::add_question() {
 	std::cin >> q;
 	this->add_question(q);
 }
-// Adds question to the database.
+// Adds unique question to the database.
 void Database::add_question(Question &q) {
-	this->questions.push_back(q);
+	//If the question is found in existing database - it is dropped.
+	if ( std::find_if(this->questions.begin(), this->questions.end(), [&q](Question &question) {return question == q;}) == this->questions.end() ) {
+		this->questions.push_back(q);
+	}
+	else {
+		this->remove_question(q);
+		this->questions.push_back(q);
+		std::cout << "Question:\n\"" << q << "\"\n-> This question was overriden." << std::endl;
+	}
+}
+// Adds question to the database.
+// If bypass_check is set to 'true', adds question to the batabase even if such question already exists.
+void Database::add_question(Question &q, bool bypass_check) {
+	if (bypass_check) this->questions.push_back(q);
+	else this->add_question(q);
 }
 // Removes last question from the database.
 void Database::remove_question() {
@@ -74,9 +88,9 @@ std::vector<Question> Database::get_questions() const{
 // Shows all questions from the database.
 std::ostream &operator<<(std::ostream &out, const Database &db) {
 	unsigned int counter = 1;
-	std::cout << "All questions:" << std::endl;
+	out << "All questions:" << std::endl;
 	for(auto question : db.questions) {
-		std::cout << std::setw(2) << counter++ << ") " << question << std::endl;
+		out << std::setw(2) << counter++ << ") " << question << std::endl;
 	}
 	return out;
 }
@@ -93,13 +107,10 @@ std::ifstream &operator>>(std::ifstream &fin, Database &db) {
     from_json(j, db);
 	return fin;
 }
-
+// Copies non-repeating questions from one database to another.
 Database Database::operator+=(Database &db) {
 	for (Question q : db.get_questions()) {
-		//If the question is found in existing database - it is dropped.
-		if ( std::find_if(this->questions.begin(), this->questions.end(), [&q](Question &question) {return question == q;}) == this->questions.end()) {
-			this->questions.push_back(q);
-		}
+		this->add_question(q);
 	}
 	return *this;
 }

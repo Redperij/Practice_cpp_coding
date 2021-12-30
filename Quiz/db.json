@@ -38,6 +38,87 @@
         },
         {
             "alt_ans": [
+                "Danish nobility",
+                "Knights of Schleswig-Holstein",
+                "\"Magna Guardia\" mercenaries"
+            ],
+            "cor_ans": "German peasants",
+            "q_text": "Who won the Battle of Hemmingstedt?"
+        },
+        {
+            "alt_ans": [
+                "Regulation",
+                "Direct action tools",
+                "Recommendation"
+            ],
+            "cor_ans": "Directive",
+            "q_text": "European Union legislation enacted through national law?"
+        },
+        {
+            "alt_ans": [
+                "705",
+                "27",
+                "24"
+            ],
+            "cor_ans": "47",
+            "q_text": "How many members does the Council of Europe have?"
+        },
+        {
+            "alt_ans": [
+                "Council of the European Union",
+                "Parliamentary Assembly",
+                "Council of Europe"
+            ],
+            "cor_ans": "European Council",
+            "q_text": "The EU institution comprising the Heads of State or Government of the Member States of the European Union"
+        },
+        {
+            "alt_ans": [
+                "Mannszucht",
+                "Anknüpfen",
+                "Meinkampf"
+            ],
+            "cor_ans": "Kulturkampf",
+            "q_text": "The period of Otto von Bismarck's struggle to bring the Catholic Church under state control?"
+        },
+        {
+            "alt_ans": [
+                "Battle of Blair Mountain",
+                "Ludlow Massacre",
+                "Detroit riot"
+            ],
+            "cor_ans": "Haymarket affair",
+            "q_text": "Which civil conflict in the United States formed the basis of the May 1 \"Labour Day\" holiday?"
+        },
+        {
+            "alt_ans": [
+                "55",
+                "7",
+                "6"
+            ],
+            "cor_ans": "8",
+            "q_text": "How many countries were involved in suppressing the Yihetuan Movement (Boxer Rebellion)"
+        },
+        {
+            "alt_ans": [
+                "He never asked for his resignation",
+                "1917",
+                "1941"
+            ],
+            "cor_ans": "1924",
+            "q_text": "In what year did Stalin first request his resignation?"
+        },
+        {
+            "alt_ans": [
+                "Vancouver",
+                "Leipzig",
+                "Wietmarschen"
+            ],
+            "cor_ans": "Mainz",
+            "q_text": "In which city did Johannes Gutenberg, one of the inventors of printing, work?"
+        },
+        {
+            "alt_ans": [
                 "Ayn Rand",
                 "Mel Brooks",
                 "Quentin Tarantino"

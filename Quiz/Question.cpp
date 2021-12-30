@@ -10,10 +10,8 @@ Question::Question(std::string q_text, std::string cor_ans, std::vector<std::str
 // FUNCTIONS //
 ///////////////
 
-/// <summary>
-/// Show question with 3 randomly chosen alternative answers (one of them is correct).
-/// </summary>
-/// <returns>Correct answer position.</returns>
+// Show question with 3 randomly chosen alternative answers (one of them is correct).
+// Returns: Correct answer position.
 unsigned int Question::show_question(){
     std::vector<std::string> chosen_answers;
     unsigned int pos_corr_ans;
@@ -29,6 +27,7 @@ unsigned int Question::show_question(){
         generate(pos_alt_ans.begin(), pos_alt_ans.end(), r_gen1);
         pos_corr_ans = r_gen2();
 
+        //Positioning chosen anwers to chosen positions.
         unsigned int q = 0;
         for (unsigned int i = 0; i < 3; i++) {
             if (i == pos_corr_ans) {
@@ -54,7 +53,7 @@ unsigned int Question::show_question(){
 
 //Prints question text.
 std::ostream &operator<<(std::ostream &out, const Question &question) {
-    std::cout << question.q_text;
+    out << question.q_text;
     return out;
 }
 //Get question from user.
@@ -68,7 +67,7 @@ std::istream &operator>>(std::istream &in, Question &question) {
     while (!ack) {
         std::cout << "Write question text." << std::endl << "Input: ";
         std::getline(in, input);
-        ack = validate(input);
+        ack = question.validate(input);
     }
     q_text = input;
     ack = false;
@@ -77,7 +76,7 @@ std::istream &operator>>(std::istream &in, Question &question) {
     while (!ack) {
         std::cout << "Write correct answer." << std::endl << "Input: ";
         std::getline(in, input);
-        ack = validate(input);
+        ack = question.validate(input);
     }
     cor_ans = input;
     ack = false;
@@ -88,7 +87,7 @@ std::istream &operator>>(std::istream &in, Question &question) {
         input = "";
         std::cout << "Write incorrect alternative No *" << loop << "* or escape with \"/stop\"." << std::endl << "Alt " << loop << ": ";
         while (std::getline(in, input) && input != "/stop") {
-            ack = validate(input);
+            ack = question.validate(input);
             if (ack) {
                 alt_ans.push_back(input);
                 loop++;
@@ -177,15 +176,17 @@ void Question::generate_alt() {
             this->alt_ans.push_back("Give me next question.");
             break;
         default:
+            //Note: UniqueRng shouldn't allow to get here.
+            std::cout << "What have you done!? (Question::generate_alt())" << std::endl;
             break;
         }
     }
 }
 
 //Asks user whether input is correct.
-bool validate(const std::string &str) {
+bool Question::validate(const std::string &str) const{
     std::string input;
-    std::cout << str << std::endl << "Is this correct?" << std::endl << "Y/N: ";
+    std::cout << "Double check:\n\"" << str << "\"\nIs this correct?" << std::endl << "Y/N: ";
     std::getline(std::cin, input);
     for (char &c : input) {
         c = std::toupper(c);

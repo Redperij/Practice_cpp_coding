@@ -26,8 +26,7 @@ private:
 	std::string cor_ans; //Correct answer.
 	std::vector<std::string> alt_ans; //Alternative wrong answers.
 	void generate_alt();
+	bool validate(const std::string &str) const;
 };
-
-bool validate(const std::string &str);
 
 #endif
