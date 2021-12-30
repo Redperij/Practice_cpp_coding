@@ -93,6 +93,10 @@ int get_option() {
 		cin.ignore(255, '\n');
 		cout << "Inter a number of option: ";
     }
+
+	//Don't know why this happens, but buffer is trashed with something in here.
+	
+	//It must be clear before asking something else from the user.
 	cin.clear();
 	cin.ignore(255, '\n');
 	return choice;

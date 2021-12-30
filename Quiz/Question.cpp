@@ -40,6 +40,7 @@ unsigned int Question::show_question(){
         }
     }
     
+    //Presenting question with chosen answers.
     std::cout << *this << std::endl;
     for (unsigned int i = 1; i <= chosen_answers.size(); i++) {
         std::cout << i << ") " << chosen_answers[i - 1] << std::endl;
@@ -63,7 +64,7 @@ std::istream &operator>>(std::istream &in, Question &question) {
     std::vector<std::string> alt_ans;
     bool ack = false;
     std::string input;
-    //Reading question text.
+    //Reading question text. Not escapable.
     while (!ack) {
         std::cout << "Write question text." << std::endl << "Input: ";
         std::getline(in, input);
@@ -72,7 +73,7 @@ std::istream &operator>>(std::istream &in, Question &question) {
     q_text = input;
     ack = false;
 
-    //Reading Correct answer.
+    //Reading Correct answer. Not escapable.
     while (!ack) {
         std::cout << "Write correct answer." << std::endl << "Input: ";
         std::getline(in, input);
@@ -81,7 +82,7 @@ std::istream &operator>>(std::istream &in, Question &question) {
     cor_ans = input;
     ack = false;
 
-    //Reading alt answers.
+    //Reading alt answers. Escapable.
     {
         unsigned int loop = 1;
         input = "";
@@ -145,6 +146,7 @@ void from_json(const json &j, Question &q) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // HELPERS //
 /////////////
+
 //Generates random alternative answers.
 void Question::generate_alt() {
 #if DEBUG
